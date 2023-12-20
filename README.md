@@ -43,16 +43,6 @@ En este curso, nos enfocaremos en consumir una API REST para desarrollar una apl
 - Una acción pertenece a - un contacto
 - Una acción pertenece a una campaña
 
-## Configuración del Entorno de Desarrollo
-
-- Node.js y npm o yarn
-- MySQL (Laragon)
-- Postman
-- Git (opcional)
-- VS Code
-  - Configuraciones recomendadas - [settings.json](./.vscode/settings.json)
-  - Extensiones recomendadas - [extensions.json](./.vscode/extensions.json)
-
 ## Instalación de Dependencias
 
 ```bash

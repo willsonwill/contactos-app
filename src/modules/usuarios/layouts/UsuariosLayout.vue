@@ -2,7 +2,7 @@
   <div>
     <q-card>
       <q-card-seccion>
-        <h2>Home</h2>
+        <h2>Usuarios</h2>
       </q-card-seccion>
     </q-card>
   </div>

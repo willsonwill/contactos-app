@@ -13,9 +13,9 @@ const routes = [
         layout:'full'
       } 
   },
-  { path: '/home', component: Home },
-  { path: '/usuarios', component: Usuarios },
-  { path: '/:pathMatch(.*)*', component: NotFound },
+  { path: '/home', component: Home, name: 'home' },
+  { path: '/usuarios', component: Usuarios, name: 'usuarios' },
+  { path: '/:pathMatch(.*)*', component: NotFound, name: 'not-found' },
 ]
 
 const router = createRouter({

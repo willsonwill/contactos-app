@@ -10,6 +10,10 @@
           </q-avatar>
           Contactos App
         </q-toolbar-title>
+        <div v-if="user" class="q-ml-md">{{ user.nombre }}</div>
+        <q-btn flat icon="exit_to_app" @click="cerrarSesion">
+          Cerrar sesión
+        </q-btn>
       </q-toolbar>
     </q-header>
 
@@ -39,9 +43,14 @@
 
 <script>
 import { ref } from "vue";
-
+import useUser from "@/composables/useUser.js";
+import { useAuthStore } from "@/store/authStore";
+import { useRouter } from "vue-router";
 export default {
   setup() {
+    const router = useRouter();
+    const { user } = useUser();
+    const authStore = useAuthStore();
     const leftDrawerOpen = ref(false);
     const icono = ref("menu");
     const menuItems = ref([
@@ -56,7 +65,15 @@ export default {
         icon: "person_outline",
       },
     ]);
+
+    async function cerrarSesion() {
+      await authStore.signOut();
+      router.push("/");
+    }
+
     return {
+      cerrarSesion,
+      user,
       icono,
       menuItems,
       leftDrawerOpen,

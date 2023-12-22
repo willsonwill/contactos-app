@@ -64,6 +64,16 @@ export default {
         to: "/usuarios",
         icon: "person_outline",
       },
+      {
+        label: "Etiquetas",
+        to: "/etiquetas",
+        icon: "person_outline",
+      },
+      {
+        label: "Contactos",
+        to: "/contactos",
+        icon: "person_outline",
+      },
     ]);
 
     async function cerrarSesion() {

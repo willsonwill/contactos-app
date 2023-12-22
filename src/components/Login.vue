@@ -43,7 +43,7 @@ import { useRouter } from "vue-router";
 export default {
   setup() {
     const authStore = useAuthStore();
-    const correoElectronico = ref("Rosa.Brakus@hotmail.com");
+    const correoElectronico = ref("Pearl66@hotmail.com");
     const password = ref("Password123$");
     const $q = useQuasar();
     const router = useRouter();

@@ -59,7 +59,7 @@ export default {
             message: "Usuario logeado correctamente",
             color: "primary",
           });
-          // router.push("/home");
+          router.push("/home");
         })
         .catch((error) => {
           $q.notify({

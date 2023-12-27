@@ -46,15 +46,33 @@ const columns = [
     sortable: true,
   },
   {
-    name: "nombre",
-    label: "NOMBRE ",
-    field: (row) => row.nombre,
+    name: "nombres",
+    label: "NOMBRES ",
+    field: (row) => row.nombres,
+    sortable: true,
+  },
+  {
+    name: "apellidos",
+    label: "APELLIDOS ",
+    field: (row) => row.apellidos,
+    sortable: true,
+  },
+  {
+    name: "telefonoCelular",
+    label: "TELEFONO CWLULAR",
+    field: (row) => row.telefonoCelular,
     sortable: true,
   },
   {
     name: "correoElectronico",
     label: "CORREO ELECTRONICO ",
     field: (row) => row.correoElectronico,
+    sortable: true,
+  },
+  {
+    name: "direccion",
+    label: "DIRECCION ",
+    field: (row) => row.direccion,
     sortable: true,
   },
   {
@@ -75,14 +93,14 @@ const columns = [
   },
 ];
 
-import UsuarioServices from "../services/index";
+import ContactoServices from "../services/index";
 import useData from "@/composables/useData";
 export default {
   components: {
     ModalForm,
   },
   setup() {
-    const { listar, rows, eliminar } = useData(UsuarioServices);
+    const { listar, rows, eliminar } = useData(ContactoServices);
     return {
       eliminar,
       listar,

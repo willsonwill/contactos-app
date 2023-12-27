@@ -52,9 +52,9 @@ const columns = [
     sortable: true,
   },
   {
-    name: "correoElectronico",
-    label: "CORREO ELECTRONICO ",
-    field: (row) => row.correoElectronico,
+    name: "color",
+    label: "COLOR ",
+    field: (row) => row.color,
     sortable: true,
   },
   {
@@ -75,14 +75,14 @@ const columns = [
   },
 ];
 
-import UsuarioServices from "../services/index";
+import EtiquetaServices from "../services/index";
 import useData from "@/composables/useData";
 export default {
   components: {
     ModalForm,
   },
   setup() {
-    const { listar, rows, eliminar } = useData(UsuarioServices);
+    const { listar, rows, eliminar } = useData(EtiquetaServices);
     return {
       eliminar,
       listar,

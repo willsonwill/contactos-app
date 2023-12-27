@@ -10,6 +10,8 @@
           </q-avatar>
           Contactos App
         </q-toolbar-title>
+        <div class="q-ml-mr">{{ user.nombre }}</div>
+        <q-btn @click="cerrarSesion()">Cerrar Sesión</q-btn>
       </q-toolbar>
     </q-header>
 
@@ -39,11 +41,16 @@
 
 <script>
 import { ref } from "vue";
-
+import useUser from "@/composables/useUser";
+import { useAuthStore } from "@/store/authStore";
+import { useRouter } from "vue-router";
 export default {
   setup() {
+    const authStore = useAuthStore();
+    const { user } = useUser();
     const leftDrawerOpen = ref(false);
     const icono = ref("menu");
+    const router = useRouter();
     const menuItems = ref([
       {
         label: "Home",
@@ -55,8 +62,28 @@ export default {
         to: "/usuarios",
         icon: "person_outline",
       },
+      {
+        label: "Etiquetas",
+        to: "/etiquetas",
+        icon: "person_outline",
+      },
+      {
+        label: "Contactos",
+        to: "/contactos",
+        icon: "person_outline",
+      },
+      {
+        label: "Campañas",
+        to: "/campañas",
+        icon: "person_outline",
+      },
     ]);
+    async function cerrarSesion() {
+      await authStore.signOut();
+      router.push("/");
+    }
     return {
+      user,
       icono,
       menuItems,
       leftDrawerOpen,
@@ -64,6 +91,7 @@ export default {
         icono.value = "blur_circular";
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
+      cerrarSesion,
     };
   },
 };

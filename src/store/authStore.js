@@ -5,11 +5,21 @@ import axios from '@/axios.js'
 export const useAuthStore = defineStore({
     id: 'auth',
     state: () => ({
-        id: null,
-        nombre: null,
-        correoElectronico: null,
-        token: null,
+        id: localStorage.getItem('id') || null,
+        nombre: localStorage.getItem('nombre') || null,
+        correoElectronico: localStorage.getItem('correoElectronico') || null,
+        token: localStorage.getItem('token') || null,
     }),
+    getters: {
+        getAuth:(state)=>{
+            return{
+                token: state.token,
+                nombre: state.nombre,
+                correoElectronico: state.correoElectronico,
+                id: state.id
+            }
+        }
+    },
     actions: {
         async singIn(credenciales){
             const {data} = await axios.post('autenticacion/iniciar-sesion', credenciales)
@@ -27,7 +37,12 @@ export const useAuthStore = defineStore({
                 this.correoElectronico = null;
                 this.id = null;
             }
+        },
+        signOut(){
+            this.token = null;
+            this.nombre = null;
+            this.correoElectronico = null;
+            this.id = null;
         }
-
     }
 })

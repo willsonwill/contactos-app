@@ -52,9 +52,33 @@ const columns = [
     sortable: true,
   },
   {
-    name: "correoElectronico",
-    label: "CORREO ELECTRONICO ",
-    field: (row) => row.correoElectronico,
+    name: "descripcion",
+    label: "DESCRIPCION ",
+    field: (row) => row.descripcion,
+    sortable: true,
+  },
+  {
+    name: "banner",
+    label: "BANNER",
+    field: (row) => row.banner,
+    sortable: true,
+  },
+  {
+    name: "estado",
+    label: "ESTADO ",
+    field: (row) => row.estado,
+    sortable: true,
+  },
+  {
+    name: "fechaInicio",
+    label: "FECHA INICIO ",
+    field: (row) => row.fechaInicio,
+    sortable: true,
+  },
+  {
+    name: "fechaFin",
+    label: "FECHA FIN ",
+    field: (row) => row.fechaFin,
     sortable: true,
   },
   {
@@ -75,14 +99,14 @@ const columns = [
   },
 ];
 
-import UsuarioServices from "../services/index";
+import CapañaServices from "../services/index";
 import useData from "@/composables/useData";
 export default {
   components: {
     ModalForm,
   },
   setup() {
-    const { listar, rows, eliminar } = useData(UsuarioServices);
+    const { listar, rows, eliminar } = useData(CapañaServices);
     return {
       eliminar,
       listar,
